@@ -25,6 +25,7 @@ contract AuctionManager is MathUser
                         , uint min_increase
                         , uint duration
                         )
+        exclusive
         returns (uint auction_id, uint base_id)
     {
         var (beneficiaries, payouts) = _makeSinglePayout(beneficiary, INFINITY);
@@ -52,6 +53,7 @@ contract AuctionManager is MathUser
                        , uint min_increase
                        , uint duration
                        )
+        exclusive
         returns (uint auction_id, uint base_id)
     {
         (auction_id, base_id) = _makeGenericAuction({ creator: msg.sender
@@ -77,6 +79,7 @@ contract AuctionManager is MathUser
                               , uint min_decrease
                               , uint duration
                               )
+        exclusive
         returns (uint auction_id, uint base_id)
     {
         var (beneficiaries, payouts) = _makeSinglePayout(beneficiary, 0);
@@ -107,6 +110,7 @@ contract AuctionManager is MathUser
                               , uint min_decrease
                               , uint duration
                               )
+        exclusive
         returns (uint auction_id, uint base_id)
     {
         var (beneficiaries, payouts) = _makeSinglePayout(beneficiary, 0);
@@ -139,6 +143,7 @@ contract AuctionManager is MathUser
                              , uint duration
                              , uint collection_limit
                              )
+        exclusive
         returns (uint auction_id, uint base_id)
     {
         var (beneficiaries, payouts) = _makeSinglePayout(beneficiary, collection_limit);
@@ -167,6 +172,7 @@ contract AuctionManager is MathUser
                              , uint duration
                              , uint collection_limit
                              )
+        exclusive
         returns (uint auction_id, uint base_id)
     {
         var (beneficiaries, payouts) = _makeSinglePayout(beneficiary, collection_limit);
@@ -195,6 +201,7 @@ contract AuctionManager is MathUser
                              , uint min_decrease
                              , uint duration
                              )
+        exclusive
         returns (uint auction_id, uint base_id)
     {
         var collection_limit = sum(payouts);
@@ -223,6 +230,7 @@ contract AuctionManager is MathUser
                              , uint min_decrease
                              , uint duration
                              )
+        exclusive
         returns (uint auction_id, uint base_id)
     {
         var collection_limit = sum(payouts);
